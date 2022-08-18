@@ -22,10 +22,7 @@
         Imprime($numeros);
 
         function Imprime($numeros) {
-            $qtdNegativos = 0;
-            $qtdPositivos = 0;
-            $qtdPares = 0;
-            $qtdImpares = 0;
+            $qtdNegativos = 0; $qtdPositivos = 0; $qtdPares = 0; $qtdImpares = 0;
             
             echo "Vetor gerado: ";
             print_r($numeros);
@@ -44,10 +41,9 @@
             }
             echo "<br>Negativos: $qtdNegativos.<br>Positivos: $qtdPositivos.<br>Pares: $qtdPares.<br>Ímpares: $qtdImpares.<br>";
         }
-        
         ?>
         <br>
-        <button class="btn btn-success" type="submit">Calcular vetor</button>
+        <button class="btn btn-success">Calcular vetor</button>
     </form>
     </body>
 </html>
