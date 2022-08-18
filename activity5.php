@@ -44,6 +44,7 @@
             }
             echo "<br>Negativos: $qtdNegativos.<br>Positivos: $qtdPositivos.<br>Pares: $qtdPares.<br>Ímpares: $qtdImpares.<br>";
         }
+        
         ?>
         <br>
         <button class="btn btn-success" type="submit">Calcular vetor</button>
