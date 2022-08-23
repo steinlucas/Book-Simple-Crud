@@ -23,19 +23,20 @@
 
         MultiplicarVetores($vetorA, $vetorB);
 
-        function MultiplicarVetores($vetorA, $vetorB) {
+        echo "Vetor A: ";
+        print_r($vetorA);
+        
+        echo "<br>Vetor B: ";
+        print_r($vetorB);
+        
+        echo "<br>Vetor R: ";
+        print_r($vetorResultado);
+
+        function MultiplicarVetores(&$vetorA, &$vetorB) {
+            global $vetorResultado;
             for ($i = 1; $i <= 10; $i++) {
                 $vetorResultado[$i] = $vetorA[$i] * $vetorB[$i];
             }
-
-            echo "Vetor A: ";
-            print_r($vetorA);
-            
-            echo "<br>Vetor B: ";
-            print_r($vetorB);
-            
-            echo "<br>Vetor R: ";
-            print_r($vetorResultado);
         }
         ?>
         <br><br>
