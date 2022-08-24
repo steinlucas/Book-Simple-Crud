@@ -1,6 +1,6 @@
 <?php
     function obterConexao() {
-        $conexao = mysqli_connect("localhost", "root", "aluno", "estante");
+        $conexao = mysqli_connect("localhost", "root", "", "estante");
         return $conexao;
     }
 
@@ -13,9 +13,9 @@
         return $resultado;
     }
 
-    function pesquisarListaLivros() {
+    function pesquisarListaLivros($idLivro) {
         $conexao = obterConexao();
-        $comandoSQL = "SELECT * FROM livro";
+        $comandoSQL = "SELECT * FROM LIVRO L WHERE L.ID = ".$idLivro;
         $query = mysqli_query($conexao, $comandoSQL);
         $resultado = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
@@ -31,7 +31,8 @@
                         FROM LIVRO_AUTOR LA, LIVRO L, AUTOR A, EDITORA E
                        WHERE LA.ID_LIVRO = L.ID
                          AND LA.ID_AUTOR = A.ID
-                         AND L.ID_EDITORA = E.ID;";
+                         AND L.ID_EDITORA = E.ID
+                    ORDER BY L.ID;";
         $query = mysqli_query($conexao, $comandoSQL);
         $resultado = mysqli_fetch_all($query, MYSQLI_ASSOC);
 

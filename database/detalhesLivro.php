@@ -1,6 +1,6 @@
 <?php
     include_once("bd.php");
-    $listaLivros = pesquisarListaLivros();
+    $listaLivros = pesquisarListaLivros($_GET['idLivro']);
 ?>
 
 <html>
@@ -14,8 +14,34 @@
     <body>
     <div class="container">
     <h1>Detalhes de Livros</h1>
-    <?php
-        var_dump($_GET['idLivro']);
-    ?>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Título</th>
+            <th scope="col">ISBN</th>
+            <th scope="col">Num Páginas</th>
+            <th scope="col">Num Edição</th>
+            <th scope="col">Ano Publicação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                foreach($listaLivros as $umLivro) {
+            ?>
+            <tr>
+            <th scope="row"><?php echo $umLivro['id'];?></th>
+            <td><?php echo $umLivro['titulo'];?></td>
+            <td><?php echo $umLivro['isbn'];?></td>
+            <td><?php echo $umLivro['numpaginas'];?></td>
+            <td><?php echo $umLivro['numedicao'];?></td>
+            <td><?php echo $umLivro['anopublicacao'];?></td>
+            <?php
+                }
+            ?>
+            </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="estanteLivros.php">Voltar</a>
     </body>
 </html>
