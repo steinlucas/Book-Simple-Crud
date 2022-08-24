@@ -1,6 +1,6 @@
 <?php
     include_once("bd.php");
-    $listaLivros = pesquisarListaLivros($_GET['idLivro']);
+    $listaLivros = pesquisarLivro($_GET['idLivro']);
 ?>
 
 <html>
@@ -39,6 +39,7 @@
             <?php
                 }
             ?>
+            
             </tr>
         </tbody>
     </table>

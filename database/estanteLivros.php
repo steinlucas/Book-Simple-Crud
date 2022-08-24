@@ -31,8 +31,8 @@
                 <tr>
                     <th scope="row" name="idLivro"><?php echo $umLivro['ID'];?></th>
                     <td><?php echo $umLivro['TITULO'];?></td>
-                    <td><?php echo $umLivro['nomeAutor'];?></td>
-                    <td><?php echo $umLivro['nomeEditora'];?></td>
+                    <td><a href="detalhesAutor.php?nomeAutor=<?php echo $umLivro['nomeAutor'];?>" class="text-primary"><?php echo $umLivro['nomeAutor'];?></a></td>
+                    <td><a href="detalhesEditora.php?nomeEditora=<?php echo $umLivro['nomeEditora'];?>" class="text-primary"><?php echo $umLivro['nomeEditora'];?></a></td>
                     <td><a class="btn btn-primary" href="detalhesLivro.php?idLivro=<?php echo $umLivro['ID'];?>">+</a></td>
                 <?php
                     }

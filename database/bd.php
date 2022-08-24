@@ -15,7 +15,25 @@
 
     function pesquisarLivro($idLivro) {
         $conexao = obterConexao();
-        $comandoSQL = "SELECT * FROM LIVRO L WHERE L.ID = ".$idLivro;
+        $comandoSQL = "SELECT * FROM LIVRO WHERE ID = ".$idLivro;
+        $query = mysqli_query($conexao, $comandoSQL);
+        $resultado = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
+        return $resultado;
+    }
+
+    function pesquisarEditora($nomeEditora) {
+        $conexao = obterConexao();
+        $comandoSQL = "SELECT * FROM EDITORA WHERE NOME LIKE '".$nomeEditora."';";
+        $query = mysqli_query($conexao, $comandoSQL);
+        $resultado = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
+        return $resultado;
+    }
+
+    function pesquisarAutor($nomeAutor) {
+        $conexao = obterConexao();
+        $comandoSQL = "SELECT * FROM AUTOR WHERE NOME LIKE '".$nomeAutor."';";
         $query = mysqli_query($conexao, $comandoSQL);
         $resultado = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
