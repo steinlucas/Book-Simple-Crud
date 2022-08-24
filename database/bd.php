@@ -13,9 +13,18 @@
         return $resultado;
     }
 
-    function pesquisarListaLivros($idLivro) {
+    function pesquisarLivro($idLivro) {
         $conexao = obterConexao();
         $comandoSQL = "SELECT * FROM LIVRO L WHERE L.ID = ".$idLivro;
+        $query = mysqli_query($conexao, $comandoSQL);
+        $resultado = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
+        return $resultado;
+    }
+
+    function pesquisarListaLivros() {
+        $conexao = obterConexao();
+        $comandoSQL = "SELECT * FROM LIVRO";
         $query = mysqli_query($conexao, $comandoSQL);
         $resultado = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
