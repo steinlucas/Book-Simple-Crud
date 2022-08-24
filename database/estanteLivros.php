@@ -13,11 +13,11 @@
 
     <body>
     <div class="container">
-    <form method="GET" name="formulario">
+    <form method="get" name="formulario" action="detalhesLivro.php">
     <h1>Listagem de Livros</h1>
         <table class="table">
             <thead>
-                <th scope="col" name="idLivro">Id Livro</th>
+                <th scope="col">Id Livro</th>
                 <th scope="col">Nome Livro</th>
                 <th scope="col">Nome Autor</th>
                 <th scope="col">Nome Editora</th>
@@ -29,14 +29,13 @@
                     foreach($listaLivros as $umLivro) {
                 ?>
                 <tr>
-                    <th scope="row"><?php echo $umLivro['ID'];?></th>
+                    <th scope="row" name="idLivro" value="<?php echo $umLivro['ID'];?>"><?php echo $umLivro['ID'];?></th>
                     <td><?php echo $umLivro['TITULO'];?></td>
                     <td><?php echo $umLivro['nomeAutor'];?></td>
                     <td><?php echo $umLivro['nomeEditora'];?></td>
-                    <td><button type="submit" class="btn btn-primary">+</button></td>
+                    <td><button type="submit" class="btn btn-primary"><a href="detalhesLivro.php?idLivro=<?php echo $umLivro['ID'];?>">Submit me!</a></button></td>
                 <?php
                     }
-                    echo "GET: ".$_GET['idLivro'].'<br>';
                 ?>
                 </tr>
             </tbody>
