@@ -21,7 +21,7 @@
                 <th scope="col">Nome Livro</th>
                 <th scope="col">Nome Autor</th>
                 <th scope="col">Nome Editora</th>
-                <th scope="col">Detalhes</th>
+                <th scope="col">Opções</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,7 +33,7 @@
                     <td><?php echo $umLivro['TITULO'];?></td>
                     <td><a href="detalhesAutor.php?nomeAutor=<?php echo $umLivro['nomeAutor'];?>" class="text-primary"><?php echo $umLivro['nomeAutor'];?></a></td>
                     <td><a href="detalhesEditora.php?nomeEditora=<?php echo $umLivro['nomeEditora'];?>" class="text-primary"><?php echo $umLivro['nomeEditora'];?></a></td>
-                    <td><a class="btn btn-primary" href="detalhesLivro.php?idLivro=<?php echo $umLivro['ID'];?>">+</a></td>
+                    <td><a class="btn btn-primary" href="detalhesLivro.php?idLivro=<?php echo $umLivro['ID'];?>">Detalhar</a></td>
                 <?php
                     }
                 ?>

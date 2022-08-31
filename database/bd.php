@@ -1,6 +1,6 @@
 <?php
     function obterConexao() {
-        $conexao = mysqli_connect("localhost", "root", "", "estante");
+        $conexao = mysqli_connect("localhost", "root", "aluno", "estante");
         return $conexao;
     }
 
@@ -15,20 +15,29 @@
 
     function pesquisarLivro($idLivro) {
         $conexao = obterConexao();
-        $comandoSQL = "SELECT * FROM LIVRO WHERE ID = ".$idLivro;
-        $query = mysqli_query($conexao, $comandoSQL);
-        $resultado = mysqli_fetch_all($query, MYSQLI_ASSOC);
+        $comandoSQL = "SELECT * FROM LIVRO WHERE ID = ?;";
+        
+        $stmt = mysqli_prepare($conexao, $comandoSQL);
+        mysqli_stmt_bind_param($stmt, "s", $idLivro);
+        mysqli_stmt_execute($stmt);
 
-        return $resultado;
+        $resultado = mysqli_stmt_get_result($stmt);
+        $resultado_array = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+
+        return $resultado_array;
     }
 
     function pesquisarEditora($nomeEditora) {
         $conexao = obterConexao();
-        $comandoSQL = "SELECT * FROM EDITORA WHERE NOME LIKE '".$nomeEditora."';";
-        $query = mysqli_query($conexao, $comandoSQL);
-        $resultado = mysqli_fetch_all($query, MYSQLI_ASSOC);
+        $comandoSQL = "SELECT * FROM EDITORA WHERE NOME LIKE ?;";
+        $stmt = mysqli_prepare($conexao, $comandoSQL);
+        mysqli_stmt_bind_param($stmt, "s", $nomeEditora);
+        mysqli_stmt_execute($stmt);
 
-        return $resultado;
+        $resultado = mysqli_stmt_get_result($stmt);
+        $resultado_array = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+
+        return $resultado_array;
     }
 
     function pesquisarAutor($nomeAutor) {
@@ -42,7 +51,7 @@
 
     function pesquisarListaLivros() {
         $conexao = obterConexao();
-        $comandoSQL = "SELECT * FROM LIVRO";
+        $comandoSQL = "SELECT * FROM LIVRO;";
         $query = mysqli_query($conexao, $comandoSQL);
         $resultado = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
