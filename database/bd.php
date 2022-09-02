@@ -1,17 +1,10 @@
 <?php
     function obterConexao() {
-        $conexao = mysqli_connect("localhost", "root", "aluno", "estante");
+        $conexao = mysqli_connect("localhost", "root", "", "estante");
         return $conexao;
     }
 
-    function pesquisarListaAutores() {
-        $conexao = obterConexao();
-        $comandoSQL = "SELECT * FROM autor";
-        $query = mysqli_query($conexao, $comandoSQL);
-        $resultado = mysqli_fetch_all($query, MYSQLI_ASSOC);
-
-        return $resultado;
-    }
+    
 
     function pesquisarLivro($idLivro) {
         $conexao = obterConexao();
@@ -49,12 +42,27 @@
         return $resultado;
     }
 
+    function pesquisarListaAutores() {
+        $conexao = obterConexao();
+        $comandoSQL = "SELECT * FROM AUTOR;";
+        $query = mysqli_query($conexao, $comandoSQL);
+        $resultado = mysqli_fetch_all($query, MYSQLI_ASSOC);
+        return $resultado;
+    }
+
     function pesquisarListaLivros() {
         $conexao = obterConexao();
         $comandoSQL = "SELECT * FROM LIVRO;";
         $query = mysqli_query($conexao, $comandoSQL);
         $resultado = mysqli_fetch_all($query, MYSQLI_ASSOC);
+        return $resultado;
+    }
 
+    function pesquisarListaEditoras() {
+        $conexao = obterConexao();
+        $comandoSQL = "SELECT * FROM EDITORA;";
+        $query = mysqli_query($conexao, $comandoSQL);
+        $resultado = mysqli_fetch_all($query, MYSQLI_ASSOC);
         return $resultado;
     }
 
@@ -71,7 +79,26 @@
                     ORDER BY L.ID;";
         $query = mysqli_query($conexao, $comandoSQL);
         $resultado = mysqli_fetch_all($query, MYSQLI_ASSOC);
-
         return $resultado;
+    }
+
+    function gravarLivro($titulo, $ISBN, $numPaginas, $numEdicao, $anoPublicacao, $idEditora){
+        $conexao = obterConexao();
+        $comandoSQL = "insert into livro (titulo, isbn, numpaginas, numedicao, anopublicacao, id_editora) values (?, ?, ?, ?, ?, ?);";
+        $stmt = mysqli_prepare($conexao, $comandoSQL);
+        mysqli_stmt_bind_param($stmt, "siiiii", $titulo, $ISBN, $numPaginas, $numEdicao, $anoPublicacao, $idEditora);
+        mysqli_stmt_execute($stmt);
+        $resultado = mysqli_stmt_get_result($stmt);
+        $resultado_array = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+        return $resultado_array;
+    }
+
+    function gravarLivroAutor($idAutor){
+        $conexao = obterConexao();
+        $comandoSQL = "insert into livro_autor (id_livro, id_autor) values ((select max(id) from livro), ?);";
+        $stmt = mysqli_prepare($conexao, $comandoSQL);
+        mysqli_stmt_bind_param($stmt, "i", $idAutor);
+        mysqli_stmt_execute($stmt);
+        $resultado = mysqli_stmt_get_result($stmt);
     }
 ?>
