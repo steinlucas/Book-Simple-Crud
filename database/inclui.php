@@ -17,7 +17,7 @@
         header('Location: estanteLivros.php');
     }*/
 
-    $resultado = gravarLivro($titulo, $ISBN, $numeroPaginas, $numeroEdicao, $anoPublicacao, $idEditora); // funcao em bd.php
+    $resul = gravarLivro($titulo, $ISBN, $numeroPaginas, $numeroEdicao, $anoPublicacao, $idEditora); // funcao em bd.php
     $resultado2 = gravarLivroAutor($idAutor);
     header('Location: estanteLivros.php');
 ?>

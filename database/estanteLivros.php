@@ -22,7 +22,6 @@
                 <th scope="col">Nome Autor</th>
                 <th scope="col">Nome Editora</th>
                 <th scope="col">Opções</th>
-                </tr>
             </thead>
             <tbody>
                 <?php
@@ -34,12 +33,15 @@
                     <td><a href="detalhesAutor.php?nomeAutor=<?php echo $umLivro['nomeAutor'];?>" class="text-primary"><?php echo $umLivro['nomeAutor'];?></a></td>
                     <td><a href="detalhesEditora.php?nomeEditora=<?php echo $umLivro['nomeEditora'];?>" class="text-primary"><?php echo $umLivro['nomeEditora'];?></a></td>
                     <td><a class="btn btn-primary" href="detalhesLivro.php?idLivro=<?php echo $umLivro['ID'];?>">Detalhar</a></td>
+                    <td><a class="btn btn-primary" href="atualizaLivro.php?idLivro=<?php echo $umLivro['ID'];?>">Atualizar</a></td>
+                    <td><a class="btn btn-primary" href="exclui.php       ?idLivro=<?php echo $umLivro['ID'];?>">Excluir</a></td>
                 <?php
                     }
                 ?>
                 </tr>
             </tbody>
         </table>
+        <br><a class="btn btn-primary" href="cadastroLivro.php">Cadastrar novo livro</a>
     </form>
     </body>
 </html>
