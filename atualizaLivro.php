@@ -18,7 +18,8 @@
             foreach($listaLivros as $umLivro) {
         ?>
         <div class="container">
-        <h1>Atualização de livro</h1>
+        <br><br><h1>Atualização de livro</h1><br>
+
         <form method="GET" action="atualiza.php">
             <div class="form-group">
             

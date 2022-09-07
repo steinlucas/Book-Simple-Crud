@@ -13,7 +13,7 @@
 
     <body>
     <div class="container">
-    <h1>Detalhes de Livros</h1>
+    <br><br><h1>Detalhes de Livros</h1>
     <table class="table">
         <thead>
             <tr>
