@@ -15,7 +15,7 @@
     <div class="container">
     <form method="get" action="detalhesLivro.php">
     <br><br><h1>Listagem de Livros</h1>
-    <br><a class="btn btn-primary" href="cadastroLivro.php" >Cadastrar novo livro</a><br><br>
+    <br><a class="btn btn-primary" href="cadastroLivro.php">Cadastrar livro</a><br><br>
 
     <table class="table">
             <thead>
