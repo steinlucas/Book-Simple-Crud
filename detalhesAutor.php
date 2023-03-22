@@ -1,6 +1,10 @@
 <?php
-    include_once("bd.php");
-    $listaAutores = pesquisarAutor($_GET['nomeAutor']);
+    include_once "bd.php";
+    include_once "DAO/AutorDAO.php";
+
+    $autor = new AutorDAO();
+
+    $listaAutores = $autor->getAutorPorNome($_GET['nomeAutor']);
 ?>
 
 <html>

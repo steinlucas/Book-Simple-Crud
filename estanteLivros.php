@@ -1,6 +1,10 @@
 <?php
     include_once("bd.php");
-    $listaLivros = pesquisarEstanteLivros();
+    include_once("DAO/LivroDAO.php");
+    
+    $livro = new LivroDAO();
+
+    $listaLivros = $livro->pesquisarEstanteLivros();
 ?>
 
 <html>
