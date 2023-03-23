@@ -1,6 +1,7 @@
 <?php
 
 include_once "bd.php";
+include_once "model\livro.php";
 
 class LivroDAO {
 
@@ -20,6 +21,23 @@ class LivroDAO {
         $query = mysqli_query($conexao, $comandoSQL);
         $resultado = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
-        return $resultado;
+        if ($resultado == false){
+        	return null;
+        } else {
+            $livros = array();
+            foreach ($resultado as $umLivro){
+                $livro = new Livro();
+
+                $livro->setIdLivro($umLivro['ID']);
+                //$livro->setNome($umLivro['nome']);
+                //$livro->setEmail($umLivro['email']);
+                //$livro->setWebsite($umLivro['website']);
+
+                $livros = array($livro);
+
+            }
+
+            return $livros;
+        }
     }
 }

@@ -17,12 +17,19 @@ class AutorDAO {
         $resultado = mysqli_stmt_get_result($stmt);
         $resultado_array = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
 
-        //$autor = new Autor();
-        //$autor->setNome($resultado_array['nome']);
-        //$autor->setEmail($resultado_array['email']);
-        //$autor->setWebsite($resultado_array['website']);
+        if ($resultado == false){
+        	return null;
+        } else {
+            foreach ($resultado_array as $umAutor ){
+                $autor = new Autor();
+                $autor->setId($umAutor['id']);
+                $autor->setNome($umAutor['nome']);
+                $autor->setEmail($umAutor['email']);
+                $autor->setWebsite($umAutor['website']);
+            }
 
-        return $resultado_array;
+            return $autor;
+        }
     }
 
 }

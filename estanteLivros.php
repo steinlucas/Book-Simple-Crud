@@ -4,7 +4,7 @@
     
     $livro = new LivroDAO();
 
-    $listaLivros = $livro->pesquisarEstanteLivros();
+    $livrosRetornados = $livro->pesquisarEstanteLivros();
 ?>
 
 <html>
@@ -30,15 +30,15 @@
             </thead>
             <tbody>
                 <?php
-                    foreach($listaLivros as $umLivro) {
+                    foreach($livrosRetornados as $umLivro) {
                 ?>
                 <tr>
-                    <td><?php echo $umLivro['TITULO'];?></td>
-                    <td><a href="detalhesAutor.php?nomeAutor=<?php echo $umLivro['nomeAutor'];?>" class="text-primary"><?php echo $umLivro['nomeAutor'];?></a></td>
-                    <td><a href="detalhesEditora.php?nomeEditora=<?php echo $umLivro['nomeEditora'];?>" class="text-primary"><?php echo $umLivro['nomeEditora'];?></a></td>
-                    <td><a href="detalhesLivro.php?idLivro=<?php echo $umLivro['ID'];?>"><i class="material-icons">search</i></a></td>
-                    <td><a href="atualizaLivro.php?idLivro=<?php echo $umLivro['ID'];?>"><i class="material-icons">edit</i></a></td>
-                    <td><a href="exclui.php?idLivro=<?php echo $umLivro['ID'];?>"><i class="material-icons" style="color: red">delete</i></a></td>
+                    <td><?php echo $umLivro->$livro['ID'];?></td>
+                    <td><a href="detalhesAutor.php?nomeAutor=<?php echo $umLivro->$livro['nomeAutor'];?>" class="text-primary"><?php echo $umLivro['nomeAutor'];?></a></td>
+                    <td><a href="detalhesEditora.php?nomeEditora=<?php echo $umLivro->$livro['nomeEditora'];?>" class="text-primary"><?php echo $umLivro['nomeEditora'];?></a></td>
+                    <td><a href="detalhesLivro.php?idLivro=<?php echo $umLivro->$livro['ID'];?>"><i class="material-icons">search</i></a></td>
+                    <td><a href="atualizaLivro.php?idLivro=<?php echo $umLivro->$livro['ID'];?>"><i class="material-icons">edit</i></a></td>
+                    <td><a href="exclui.php?idLivro=<?php echo $umLivro->$livro['ID'];?>"><i class="material-icons" style="color: red">delete</i></a></td>
                 <?php
                     }
                 ?>

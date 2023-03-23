@@ -4,7 +4,7 @@
 
     $autor = new AutorDAO();
 
-    $listaAutores = $autor->getAutorPorNome($_GET['nomeAutor']);
+    $autorRetornado = $autor->getAutorPorNome($_GET['nomeAutor']);
 ?>
 
 <html>
@@ -28,18 +28,11 @@
             </tr>
         </thead>
         <tbody>
-            <?php
-                foreach($listaAutores as $umAutor) {
-            ?>
             <tr>
-            <th scope="row"><?php echo $umAutor['id'];?></th>
-            <td><?php echo $umAutor['nome'];?></td>
-            <td><?php echo $umAutor['email'];?></td>
-            <td><?php echo $umAutor['website'];?></td>
-            <?php
-                }
-            ?>
-            
+            <th scope="row"><?php echo $autorRetornado->getId() ;?></th>
+            <td><?php echo $autorRetornado->getNome(); ?></td>
+            <td><?php echo $autorRetornado->getEmail() ;?></td>
+            <td><?php echo $autorRetornado->getWebsite() ;?></td>
             </tr>
         </tbody>
     </table>

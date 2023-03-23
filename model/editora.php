@@ -1,18 +1,10 @@
 <?php
 
-class Autor{
-    public $id;
+class Editora{
     public $nome;
+    public $telefone;
     public $email;
     public $website;
-
-    public function setId($id){
-        $this->id = $id;
-    }
-
-    public function getId(){
-        return $this->id;
-    }
 
     public function setNome($nome){
         $this->nome = $nome;
@@ -22,6 +14,14 @@ class Autor{
         return $this->nome;
     }
 
+    public function setTelefone($telefone){
+        $this->telefone = $telefone;
+    }
+
+    public function getTelefone(){
+        return $this->telefone;
+    }
+    
     public function setEmail($email){
         $this->email = $email;
     }
@@ -29,7 +29,7 @@ class Autor{
     public function getEmail(){
         return $this->email;
     }
-
+    
     public function setWebsite($website){
         $this->website = $website;
     }
