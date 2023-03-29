@@ -27,7 +27,6 @@ class LivroDAO {
             $livros = array();
             foreach ($resultado as $umLivro){
                 $livro = new Livro();
-
                 $livro->setIdLivro($umLivro['ID']);
                 //$livro->setNome($umLivro['nome']);
                 //$livro->setEmail($umLivro['email']);
